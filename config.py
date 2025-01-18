@@ -4,23 +4,23 @@ id_pattern = re.compile(r'^.\d+$')
 
 class Config(object):
     # pyro client config
-    API_ID    = os.environ.get("API_ID", "")
-    API_HASH  = os.environ.get("API_HASH", "")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "") 
+    API_ID    = os.environ.get("API_ID", "22971260")
+    API_HASH  = os.environ.get("API_HASH", "39b93b45f525642b9c732f43185e4ab0")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "6890721669:AAG4thTeXIbW9vnGq2h14Kcuoa_R8EmOVns") 
    
     # database config
-    DB_NAME = os.environ.get("DB_NAME","rename")     
-    DB_URL  = os.environ.get("DB_URL","")
+    DB_NAME = os.environ.get("DB_NAME","okenrename")     
+    DB_URL  = os.environ.get("DB_URL","mongodb+srv://Web:Web@cluster0.blbma.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
     # other configs
     BOT_UPTIME  = time.time()
     START_PIC   = os.environ.get("START_PIC", "https://envs.sh/jUp.jpg")
-    ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '').split()]
+    ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '5911514776 7253187871').split()]
 
     # channels logs
     FORCE_SUB   = os.environ.get("FORCE_SUB", "TG_BOTS_UPDATE") 
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", ""))
-    BIN_CHANNEL = int(os.environ.get("BIN_CHANNEL", ""))
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001992049478"))
+    BIN_CHANNEL = int(os.environ.get("BIN_CHANNEL", "-1001992049478"))
 
     # wes response configuration     
     WEBHOOK = bool(os.environ.get("WEBHOOK", True))
