@@ -198,7 +198,7 @@ async def doc(bot, update):
         )
 
         deletion_msg = await sent_message.reply(
-            text="**🗑 This file will auto-delete in 30 minutes. Save it now!**",
+            text="**🗑 This file will auto-delete in 24hrs. Save it now!**",
         )
 
     except Exception as e:          
@@ -213,10 +213,10 @@ async def doc(bot, update):
     if file_path:
         os.remove(file_path)
 
-    await asyncio.sleep(1800)
+    await asyncio.sleep(86400)
     try:
         await sent_message.delete()
         await forwarded_message.delete()
         await deletion_msg.delete()
     except Exception as e:
-        print(f"Error deleting messages after 30 minutes: {e}")
+        print(f"Error deleting messages after 24hrs: {e}")
