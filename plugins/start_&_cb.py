@@ -10,6 +10,7 @@ async def start(client, message):
     user = message.from_user
     await jishubotz.add_user(client, message)                
     button = InlineKeyboardMarkup([
+	[InlineKeyboardButton("☕ ʙᴜʏ ᴀ ᴄᴜᴘ ᴏғ ᴄᴏғғᴇᴇ ☕", callback_data='donate')]
         [InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about'),
         InlineKeyboardButton('• ʜᴇʟᴘ •', callback_data='help')],
         [InlineKeyboardButton("♻ ᴅᴇᴠᴇʟᴏᴘᴇʀ ♻", url='https://telegram.me/Harikushal')]
