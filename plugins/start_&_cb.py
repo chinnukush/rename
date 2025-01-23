@@ -28,6 +28,7 @@ async def cb_handler(client, query: CallbackQuery):
             text=Txt.START_TXT.format(query.from_user.mention),
             disable_web_page_preview=True,
             reply_markup = InlineKeyboardMarkup([
+		[InlineKeyboardButton("☕ ʙᴜʏ ᴀ ᴄᴜᴘ ᴏғ ᴄᴏғғᴇᴇ ☕", callback_data='donate')]
                 [InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about'),
                 InlineKeyboardButton('• ʜᴇʟᴘ •', callback_data='help')],
                 [InlineKeyboardButton("♻ ᴅᴇᴠᴇʟᴏᴘᴇʀ ♻", url='https://telegram.me/Harikushal')]
