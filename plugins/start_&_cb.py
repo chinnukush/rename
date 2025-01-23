@@ -9,12 +9,15 @@ from config import Config, Txt
 async def start(client, message):
     user = message.from_user
     await jishubotz.add_user(client, message)                
-    button = InlineKeyboardMarkup([
-	[InlineKeyboardButton("☕ ʙᴜʏ ᴀ ᴄᴜᴘ ᴏғ ᴄᴏғғᴇᴇ ☕", callback_data='donate')]
-        [InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about'),
-        InlineKeyboardButton('• ʜᴇʟᴘ •', callback_data='help')],
-        [InlineKeyboardButton("♻ ᴅᴇᴠᴇʟᴏᴘᴇʀ ♻", url='https://telegram.me/Harikushal')]
-    ])
+    button = InlineKeyboardMarkup(
+	[[
+	InlineKeyboardButton("☕ ʙᴜʏ ᴀ ᴄᴜᴘ ᴏғ ᴄᴏғғᴇᴇ ☕", callback_data='donate'),
+	],[
+        InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about'),
+        InlineKeyboardButton('• ʜᴇʟᴘ •', callback_data='help'),
+	],[
+        InlineKeyboardButton("♻ ᴅᴇᴠᴇʟᴏᴘᴇʀ ♻", url='https://telegram.me/Harikushal'),
+    ]])
     if Config.START_PIC:
         await message.reply_photo(Config.START_PIC, caption=Txt.START_TXT.format(user.mention), reply_markup=button)       
     else:
@@ -28,13 +31,15 @@ async def cb_handler(client, query: CallbackQuery):
         await query.message.edit_text(
             text=Txt.START_TXT.format(query.from_user.mention),
             disable_web_page_preview=True,
-            reply_markup = InlineKeyboardMarkup([
-		[InlineKeyboardButton("☕ ʙᴜʏ ᴀ ᴄᴜᴘ ᴏғ ᴄᴏғғᴇᴇ ☕", callback_data='donate')]
-                [InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about'),
-                InlineKeyboardButton('• ʜᴇʟᴘ •', callback_data='help')],
-                [InlineKeyboardButton("♻ ᴅᴇᴠᴇʟᴏᴘᴇʀ ♻", url='https://telegram.me/Harikushal')]
-            ])
-        )
+            reply_markup = InlineKeyboardMarkup(
+	[[
+	InlineKeyboardButton("☕ ʙᴜʏ ᴀ ᴄᴜᴘ ᴏғ ᴄᴏғғᴇᴇ ☕", callback_data='donate'),
+	],[
+        InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about'),
+        InlineKeyboardButton('• ʜᴇʟᴘ •', callback_data='help'),
+	],[
+        InlineKeyboardButton("♻ ᴅᴇᴠᴇʟᴏᴘᴇʀ ♻", url='https://telegram.me/Harikushal'),
+    ]])
     elif data == "help":
         await query.message.edit_text(
             text=Txt.HELP_TXT,
