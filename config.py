@@ -114,7 +114,7 @@ class Txt(object):
 
 💖 𝐔𝐏𝐈 𝐈𝐃 : <code>harikushal234@okicici</code>
 
-💗 𝐐𝐑 𝐂𝐨𝐝𝐞 : <b><a href='https://envs.sh/Agj.jpg'>𝖢𝗅𝗂𝖼𝗄 𝖧𝖾𝗋𝖾</a></b>
+👨‍💻 Ⓠ︎Ⓡ︎ Ⓒ︎Ⓞ︎Ⓓ︎Ⓔ︎ : <b><a href='https://envs.sh/tzw.jpg'>𝖢𝗅𝗂𝖼𝗄 𝖧𝖾𝗋𝖾</a></b>
 """
 
     SEND_METADATA = """🖼️ 𝗛𝗼𝘄 𝗧𝗼 𝗦𝗲𝘁 𝗖𝘂𝘀𝘁𝗼𝗺 𝗠𝗲𝘁𝗮𝗱𝗮𝘁𝗮
