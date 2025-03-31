@@ -15,10 +15,10 @@ class Config(object):
     # other configs
     BOT_UPTIME  = time.time()
     START_PIC   = os.environ.get("START_PIC", "https://envs.sh/HwT.jpg")
-    ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '5911514776 7253187871').split()]
+    ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '5911514776 7253187871 8075224687').split()]
 
     # channels logs
-    FORCE_SUB   = os.environ.get("FORCE_SUB", "TG_BOTS_UPDATE") 
+    FORCE_SUB   = os.environ.get("FORCE_SUB", "Hari_Backup") 
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001992049478"))
     BIN_CHANNEL = int(os.environ.get("BIN_CHANNEL", "-1001992049478"))
 
