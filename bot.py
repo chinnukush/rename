@@ -8,6 +8,15 @@ from aiohttp import web
 from route import web_server
 import pyrogram.utils
 import pyromod
+import asyncio
+
+async def safe_request():
+    for attempt in range(5):
+        try:
+            response = await client.some_request()
+            return response
+        except Exception:
+            await asyncio.sleep(2**attempt)
 
 pyrogram.utils.MIN_CHAT_ID = -999999999999
 pyrogram.utils.MIN_CHANNEL_ID = -1009999999999
