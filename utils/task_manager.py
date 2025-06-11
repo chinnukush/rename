@@ -1,3 +1,7 @@
 # codes add by @Harikushal
 
-from utils.task_manager import handle_request
+async def handle_request(file):
+    return await process_file(file)
+
+tasks = [handle_request(f) for f in files]
+results = await asyncio.gather(*tasks)
