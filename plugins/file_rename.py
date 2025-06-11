@@ -8,9 +8,13 @@ from hachoir.parser import createParser
 from helper.utils import progress_for_pyrogram, convert, humanbytes, add_prefix_suffix
 from helper.database import jishubotz
 from asyncio import sleep
-from PIL import Image
+#from PIL import Image
 from config import Config
 import os, time, re, random, asyncio
+from PIL import Image
+img = Image.open("your_image.jpg")
+img = img.convert("RGB")  # Converts to standard JPEG format
+img.save("output.jpg", quality=95)
 
 
 @Client.on_message(filters.private & (filters.document | filters.audio | filters.video))
