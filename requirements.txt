@@ -11,5 +11,5 @@ ffmpeg
 gunicorn
 aiohttp
 pyromod
-pyrofork==2.3.43
+pyrofork
 colorama
