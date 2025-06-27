@@ -7,9 +7,6 @@ Pillow
 aiohttp
 pytz
 Flask
-ffmpeg 
 gunicorn
 aiohttp
 pyromod
-pyrofork
-colorama
