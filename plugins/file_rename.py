@@ -213,7 +213,7 @@ async def doc(bot, update):
     if file_path:
         os.remove(file_path)
 
-    await asyncio.sleep(86400)
+    await asyncio.sleep(21600)
     try:
         await sent_message.delete()
         await forwarded_message.delete()
