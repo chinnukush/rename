@@ -18,7 +18,7 @@ class Config(object):
     ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '5911514776 7253187871').split()]
 
     # channels logs
-    FORCE_SUB   = os.environ.get("FORCE_SUB", "TG_BOTS_UPDATE") 
+    FORCE_SUB   = os.environ.get("FORCE_SUB", "TG_Bots_Support") 
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002680514859"))
     BIN_CHANNEL = int(os.environ.get("BIN_CHANNEL", "-1002680514859"))
 
