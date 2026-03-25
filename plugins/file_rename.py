@@ -13,7 +13,7 @@ from asyncio import sleep
 from config import Config
 import os, time, re, random, asyncio
 from PIL import Image
-img = Image.open("your_image.jpg")
+img = Image.open("https://i.ibb.co/TG9ZwgB/image.jpg")
 img = img.convert("RGB")  # Converts to standard JPEG format
 img.save("output.jpg", quality=95)
 
