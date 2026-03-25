@@ -13,3 +13,4 @@ aiohttp
 pyrogram
 pyrofork==2.3.43
 colorama
+requests
