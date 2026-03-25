@@ -6,7 +6,8 @@ from pyromod import listen
 from config import Txt
 
 
-# ✅ Buttons
+# ================= BUTTONS ================= #
+
 ON = [
     [InlineKeyboardButton('Metadata On ✅', callback_data='metadata_1')],
     [InlineKeyboardButton('Set Custom Metadata', callback_data='custom_metadata')]
@@ -18,7 +19,8 @@ OFF = [
 ]
 
 
-# ✅ /metadata command
+# ================= /metadata COMMAND ================= #
+
 @Client.on_message(filters.private & filters.command('metadata'))
 async def handle_metadata(bot: Client, message: Message):
 
@@ -41,13 +43,14 @@ async def handle_metadata(bot: Client, message: Message):
         )
 
 
-# ✅ Callback handler
+# ================= CALLBACK HANDLER ================= #
+
 @Client.on_callback_query(filters.regex('metadata_|custom_metadata'))
 async def query_metadata(bot: Client, query: CallbackQuery):
 
     data = query.data
 
-    # ✅ ON / OFF toggle
+    # ----------- ON / OFF ----------- #
     if data.startswith('metadata_'):
         _bool = data.split('_')[1]
         user_metadata = await jishubotz.get_metadata_code(query.from_user.id)
@@ -65,18 +68,20 @@ async def query_metadata(bot: Client, query: CallbackQuery):
                 reply_markup=InlineKeyboardMarkup(ON)
             )
 
-    # ✅ Set custom metadata
+    # ----------- CUSTOM METADATA ----------- #
     elif data == 'custom_metadata':
         await query.message.delete()
 
         try:
-            # Ask user for metadata
+            # Ask user input
+            await bot.send_message(query.from_user.id, "📩 Send your metadata now:")
+
             try:
                 metadata = await bot.ask(
                     query.from_user.id,
                     Txt.SEND_METADATA,
-                    filters=filters.text,
-                    timeout=30
+                    filters=filters.text & filters.private,
+                    timeout=60
                 )
             except asyncio.TimeoutError:
                 await bot.send_message(
@@ -87,6 +92,7 @@ async def query_metadata(bot: Client, query: CallbackQuery):
 
             # Save metadata
             ms = await bot.send_message(query.from_user.id, "**Please Wait...**")
+
             await jishubotz.set_metadata_code(
                 query.from_user.id,
                 metadata_code=metadata.text
@@ -95,4 +101,4 @@ async def query_metadata(bot: Client, query: CallbackQuery):
             await ms.edit("**Your Metadata Code Set Successfully ✅**")
 
         except Exception as e:
-            print(e)
+            print(f"Metadata Error: {e}")
