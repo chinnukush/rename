@@ -103,9 +103,9 @@ async def cb_handler(client, query: CallbackQuery):
             text=Txt.DONATE_TXT,
             disable_web_page_preview = True,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("ᴀʟʟ ɪɴғᴏ", url="https://t.me/TG_BOTS_UPDATE/91")],
+                [InlineKeyboardButton("📚 ᴀʟʟ ɪɴғᴏ", url="https://t.me/TG_BOTS_UPDATE/91")],
                 [InlineKeyboardButton("◀️ ʙᴀᴄᴋ", callback_data = "about"),
-                InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data = "close")]
+                InlineKeyboardButton("🔒 ᴄʟᴏsᴇ", callback_data = "close")]
             ])            
 	)
 
