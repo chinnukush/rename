@@ -10,9 +10,9 @@ async def start(client, message):
     user = message.from_user
     await jishubotz.add_user(client, message)                
     button = InlineKeyboardMarkup([
-        [InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about'),
-        InlineKeyboardButton('• ʜᴇʟᴘ •', callback_data='help')],
-        [InlineKeyboardButton("♻ ᴅᴇᴠᴇʟᴏᴘᴇʀ ♻", url='https://telegram.me/Harikushal')]
+        [InlineKeyboardButton('📖 ᴀʙᴏᴜᴛ', callback_data='about'),
+        InlineKeyboardButton(' 🆘 ʜᴇʟᴘ', callback_data='help')],
+        [InlineKeyboardButton("👨‍💻 ᴅᴇᴠᴇʟᴏᴘᴇʀ", url='https://telegram.me/Harikushal')]
     ])
     if Config.START_PIC:
         await message.reply_photo(Config.START_PIC, caption=Txt.START_TXT.format(user.mention), reply_markup=button)       
@@ -28,22 +28,22 @@ async def cb_handler(client, query: CallbackQuery):
             text=Txt.START_TXT.format(query.from_user.mention),
             disable_web_page_preview=True,
             reply_markup = InlineKeyboardMarkup([
-                [InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about'),
-                InlineKeyboardButton('• ʜᴇʟᴘ •', callback_data='help')],
-                [InlineKeyboardButton("♻ ᴅᴇᴠᴇʟᴏᴘᴇʀ ♻", url='https://telegram.me/Harikushal')]
-            ])
-        )
+        [InlineKeyboardButton('📖 ᴀʙᴏᴜᴛ', callback_data='about'),
+        InlineKeyboardButton(' 🆘 ʜᴇʟᴘ', callback_data='help')],
+        [InlineKeyboardButton("👨‍💻 ᴅᴇᴠᴇʟᴏᴘᴇʀ", url='https://telegram.me/Harikushal')]
+    ])
+		)
     elif data == "help":
         await query.message.edit_text(
             text=Txt.HELP_TXT,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([
-		[InlineKeyboardButton("sᴇᴛ ᴍᴇᴛᴀᴅᴀᴛᴀ", callback_data = "meta")],
-                [InlineKeyboardButton("ᴘʀᴇꜰɪx", callback_data = "prefix"),
-                InlineKeyboardButton("sᴜꜰꜰɪx", callback_data = "suffix")],
-		[InlineKeyboardButton("ᴄᴀᴘᴛɪᴏɴ", callback_data = "caption"),
-                InlineKeyboardButton("ᴛʜᴜᴍʙɴᴀɪʟ", callback_data = "thumbnail")],
-		[InlineKeyboardButton("ʜᴏᴍᴇ", callback_data = "start")]
+		[InlineKeyboardButton("🗂️ sᴇᴛ ᴍᴇᴛᴀᴅᴀᴛᴀ", callback_data = "meta")],
+                [InlineKeyboardButton("🔝 ᴘʀᴇꜰɪx", callback_data = "prefix"),
+                InlineKeyboardButton("🔚 sᴜꜰꜰɪx", callback_data = "suffix")],
+		[InlineKeyboardButton("📝 ᴄᴀᴘᴛɪᴏɴ", callback_data = "caption"),
+                InlineKeyboardButton("🖼️ ᴛʜᴜᴍʙɴᴀɪʟ", callback_data = "thumbnail")],
+		[InlineKeyboardButton("🏠 ʜᴏᴍᴇ", callback_data = "start")]
             ])            
         )
 
@@ -51,7 +51,7 @@ async def cb_handler(client, query: CallbackQuery):
         await query.message.edit_caption(
             caption=Txt.SEND_METADATA,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data="help"), InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
+                [InlineKeyboardButton("◀️ ʙᴀᴄᴋ", callback_data="help"), InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
             ])
 	)
 
@@ -59,7 +59,7 @@ async def cb_handler(client, query: CallbackQuery):
         await query.message.edit_caption(
             caption=Txt.PREFIX,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data="help"), InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
+                [InlineKeyboardButton("◀️ ʙᴀᴄᴋ", callback_data="help"), InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
             ])
 	)
 
@@ -67,7 +67,7 @@ async def cb_handler(client, query: CallbackQuery):
         await query.message.edit_caption(
             caption=Txt.SUFFIX,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data="help"), InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
+                [InlineKeyboardButton("◀️ ʙᴀᴄᴋ", callback_data="help"), InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
             ])
 	)
 
@@ -75,7 +75,7 @@ async def cb_handler(client, query: CallbackQuery):
         await query.message.edit_caption(
             caption=Txt.CAPTION_TXT,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data="help"), InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
+                [InlineKeyboardButton("◀️ ʙᴀᴄᴋ", callback_data="help"), InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
             ])
 	)
 
@@ -83,7 +83,7 @@ async def cb_handler(client, query: CallbackQuery):
         await query.message.edit_caption(
             caption=Txt.THUMBNAIL_TXT,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data="help"), InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
+                [InlineKeyboardButton("◀️ ʙᴀᴄᴋ", callback_data="help"), InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
             ])
 	)
 
@@ -92,9 +92,9 @@ async def cb_handler(client, query: CallbackQuery):
             text=Txt.ABOUT_TXT,
             disable_web_page_preview = True,
             reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton("👨‍💻  ʀᴇᴘᴏ", url="https://github.com/Kushalhk"),
-                InlineKeyboardButton("💥  ᴅᴏɴᴀᴛᴇ", callback_data="donate")],
-		[InlineKeyboardButton("ʜᴏᴍᴇ", callback_data="start")]
+                [InlineKeyboardButton("👨‍💻 ʀᴇᴘᴏ", url="https://t.me/Hari_Moviez"),
+                InlineKeyboardButton("💰 ᴅᴏɴᴀᴛᴇ", callback_data="donate")],
+		[InlineKeyboardButton("🏠 ʜᴏᴍᴇ", callback_data="start")]
             ])            
         )
 
@@ -104,7 +104,7 @@ async def cb_handler(client, query: CallbackQuery):
             disable_web_page_preview = True,
             reply_markup=InlineKeyboardMarkup([
                 [InlineKeyboardButton("ᴀʟʟ ɪɴғᴏ", url="https://t.me/TG_BOTS_UPDATE/91")],
-                [InlineKeyboardButton("ʙᴀᴄᴋ", callback_data = "about"),
+                [InlineKeyboardButton("◀️ ʙᴀᴄᴋ", callback_data = "about"),
                 InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data = "close")]
             ])            
 	)
