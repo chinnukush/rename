@@ -4,9 +4,9 @@ import logging
 from datetime import datetime
 from pytz import timezone
 
-from pyromod import Client   # ✅ ONLY this Client
-from pyrogram import __version__, idle
+from pyrogram import Client, __version__, idle
 from pyrogram.raw.all import layer
+from pyromod import listen  # ✅ correct import
 
 from config import Config
 from aiohttp import web
@@ -14,7 +14,7 @@ from route import web_server
 
 import pyrogram.utils
 
-# Logging (to see real errors)
+# Logging
 logging.basicConfig(level=logging.INFO)
 
 # Fix Telegram limits
@@ -45,21 +45,21 @@ class Bot(Client):
 
         print(f"{me.first_name} Is Started.....✨️")
 
-        # ✅ ALWAYS START WEB SERVER (Important for Koyeb)
+        # Web server (Koyeb fix)
         app = web.AppRunner(await web_server())
         await app.setup()
         PORT = int(os.environ.get("PORT", 8000))
         await web.TCPSite(app, "0.0.0.0", PORT).start()
         print(f"Web server started on port {PORT}")
 
-        # ✅ Notify Admins
+        # Notify Admins
         for id in Config.ADMIN:
             try:
                 await self.send_message(id, f"**{me.first_name} Is Started...**")
             except Exception as e:
                 print(f"Error sending message to admin {id}: {e}")
 
-        # ✅ Log Channel Message
+        # Log Channel
         if Config.LOG_CHANNEL:
             try:
                 curr = datetime.now(timezone("Asia/Kolkata"))
@@ -82,14 +82,12 @@ class Bot(Client):
         print("Bot stopped.")
 
 
-# ✅ MAIN FUNCTION (THIS FIXES STOPPING ISSUE)
 async def main():
     bot = Bot()
     await bot.start()
     print("Bot is running... 🚀")
 
-    # 👇 THIS LINE KEEPS BOT ALIVE
-    await idle()
+    await idle()  # keeps bot alive
 
     await bot.stop()
 
