@@ -4,7 +4,8 @@ import logging
 from datetime import datetime
 from pytz import timezone
 
-from pyrogram import Client, __version__, idle
+from pyromod import Client   # ✅ ONLY this Client
+from pyrogram import __version__, idle
 from pyrogram.raw.all import layer
 
 from config import Config
@@ -12,7 +13,6 @@ from aiohttp import web
 from route import web_server
 
 import pyrogram.utils
-import pyromod
 
 # Logging (to see real errors)
 logging.basicConfig(level=logging.INFO)
