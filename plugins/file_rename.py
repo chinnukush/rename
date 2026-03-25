@@ -12,11 +12,20 @@ from asyncio import sleep
 #from PIL import Image
 from config import Config
 import os, time, re, random, asyncio
+import requests
 from PIL import Image
-img = Image.open("https://i.ibb.co/TG9ZwgB/image.jpg")
-img = img.convert("RGB")  # Converts to standard JPEG format
-img.save("output.jpg", quality=95)
+from io import BytesIO
 
+try:
+    url = "https://i.ibb.co/Z6Z8Lc1M/7253187871-29051.jpg"
+    response = requests.get(url)
+
+    img = Image.open(BytesIO(response.content))
+    img = img.convert("RGB")
+    img.save("output.jpg", quality=95)
+
+except Exception as e:
+    print(f"Image error: {e}")
 
 @Client.on_message(filters.private & (filters.document | filters.audio | filters.video))
 async def rename_start(client, message):
